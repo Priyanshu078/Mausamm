@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/skyBlue"
+    tools:context=".fragments.DetailWeatherInfoFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/menubar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:contentDescription="@string/this_is_a_menu_icon"
+            android:paddingStart="16dp"
+            android:scaleType="fitStart"
+            android:src="@drawable/menu" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:contentDescription="@string/this_is_a_search_icon"
+            android:paddingRight="16dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/search" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:dividerColor="@color/black"
+        app:dividerThickness="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menubar" />
+
+    <TextView
+        android:id="@+id/hourlyForecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/today_s_hourly_forecast"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menubar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/hourlyForecastRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hourlyForecast"
+        app:layout_constraintBottom_toTopOf="@+id/guideline">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/weekForecast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/_7_day_forecast"
+        android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+        android:textStyle="italic"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weeklyForecastRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weekForecast"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="20dp"
+        app:layout_constraintGuide_percent="0.55"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
