@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mausam.adapters.HourlyForecastAdapter
 import com.example.mausam.adapters.WeeklyForecastAdapter
@@ -14,7 +15,6 @@ import com.example.mausam.databinding.FragmentDetailWeatherInfoBinding
 import com.example.mausam.viewModel.BasicWeatherInfoViewModel
 
 class DetailWeatherInfoFragment : Fragment() {
-
     private var _binding:FragmentDetailWeatherInfoBinding? = null
     private val binding get() = _binding!!
     private lateinit var obj:BasicWeatherInfoViewModel
@@ -39,17 +39,12 @@ class DetailWeatherInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Log.d("num", obj.forecastData.value?.latitude.toString())
-        try {
             binding.hourlyForecastRecyclerView.adapter = HourlyForecastAdapter(obj.forecastData.value?.hourly!!)
             binding.hourlyForecastRecyclerView.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             binding.weeklyForecastRecyclerView.adapter = WeeklyForecastAdapter(obj.forecastData.value?.daily!!)
             binding.weeklyForecastRecyclerView.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        }
-        catch (e:Exception){
-            e.message?.let { Log.d("ex", it) }
-        }
     }
 
     override fun onDestroyView() {

@@ -18,4 +18,6 @@
     <string name="pressureValue">%s mb</string>
     <string name="visibilityValue">%s km</string>
     <string name="windSpeedValue">%s km/h</string>
+    <string name="city_name">City Name</string>
+    <string name="search">Search</string>
 </resources>

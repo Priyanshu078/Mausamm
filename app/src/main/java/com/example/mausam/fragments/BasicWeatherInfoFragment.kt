@@ -20,8 +20,12 @@ class BasicWeatherInfoFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: BasicWeatherInfoViewModel by viewModels()
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if(SearchValue.cityName == "") {
+            SearchValue.cityName = "Gondia"
+        }
     }
 
     override fun onCreateView(
@@ -80,6 +84,9 @@ class BasicWeatherInfoFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
+        }
+        binding.searchImageView.setOnClickListener {
+            view.findNavController().navigate(BasicWeatherInfoFragmentDirections.actionBasicWeatherInfoFragmentToSearchFragment())
         }
     }
 

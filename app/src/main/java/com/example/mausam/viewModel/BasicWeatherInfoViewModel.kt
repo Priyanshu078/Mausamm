@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mausam.fragments.SearchValue
 import com.example.mausam.network.WeatherApi
 import com.example.mausam.network.WeatherData
 import com.example.mausam.network.WeatherForecast
@@ -26,14 +27,14 @@ class BasicWeatherInfoViewModel() : ViewModel(), Parcelable{
     }
 
     init {
-        getWeatherData()
+        getWeatherData(SearchValue.cityName)
     }
 
-    private fun getWeatherData(){
+    private fun getWeatherData(cityName:String){
         viewModelScope.launch {
             try {
                 val weatherData:WeatherData = WeatherApi.retrofitService.getWeather(
-                    "Gondia",
+                    cityName,
                     "2a538372ec42bdd273de4e7d52b1b09e",
                     "metric"
                 )
