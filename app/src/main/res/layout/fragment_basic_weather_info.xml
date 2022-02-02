@@ -58,55 +58,67 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/menubar" />
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider">
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop = "16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintBottom_toTopOf="@+id/weather"
+            app:cardCornerRadius="15dp"
+            >
+
+        <ImageView
+            android:id="@id/weatherImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/weather_image"
+            android:scaleType="center"/>
+
+        </com.google.android.material.card.MaterialCardView>
 
         <TextView
             android:id="@+id/weather"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
             android:textColor="@color/black"
             android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/feelsLikeText"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/weatherInfo"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <TextView
             android:id="@+id/weatherInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
             android:textColor="@color/black"
             android:textStyle="italic"
-            app:layout_constraintBottom_toTopOf="@+id/weatherInfo"
+            android:paddingLeft="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/cityName"
             app:layout_constraintLeft_toLeftOf="parent" />
-
-        <TextView
-            android:id="@+id/cityName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:textAppearance="@style/TextAppearance.Material3.HeadlineLarge"
-            android:textColor="@color/black"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    <TextView
+        android:id="@+id/cityName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/black"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingEnd="16dp"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="@color/black"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
@@ -130,13 +142,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:padding="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -144,7 +156,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textStyle="bold"
-
                     android:text="@string/humidity"/>
 
                 <TextView
@@ -187,13 +198,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:padding="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -244,13 +255,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             android:orientation="horizontal">
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:padding="16dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -302,13 +313,13 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="16dp"
             android:orientation="horizontal">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="16dp"
             android:orientation="vertical">
 
             <TextView

@@ -25,20 +25,6 @@ class BasicWeatherInfoViewModel() : ViewModel(), Parcelable{
     constructor(parcel: Parcel) : this() {
     }
 
-
-//    val images:List<Int> = listOf(
-//        R.drawable.weather1,
-//        R.drawable.weather2,
-//        R.drawable.weather3,
-//        R.drawable.weather4,
-//        R.drawable.weather5,
-//        R.drawable.weather6,
-//        R.drawable.weather7,
-//        R.drawable.weather8,
-//        R.drawable.weather9,
-//        R.drawable.weather10
-//    )
-
     init {
         getWeatherData()
     }

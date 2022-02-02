@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.example.mausam.R
 import com.example.mausam.databinding.FragmentBasicWeatherInfoBinding
 import com.example.mausam.viewModel.BasicWeatherInfoViewModel
@@ -51,6 +52,18 @@ class BasicWeatherInfoFragment : Fragment() {
             binding.visibilityText.text = getString(R.string.visibilityValue,(newData.visibility/1000).toString())
             binding.pressureText.text = getString(R.string.pressureValue,newData.main.pressure.toString())
             binding.windSpeedText.text = getString(R.string.windSpeedValue,newData.wind.speed.toString())
+            if(newData.weather[0].main == "Clear" || newData.weather[0].main == "clear"){
+                displayImage(R.drawable.sunny)
+            }
+            else if(newData.weather[0].main == "Rain" || newData.weather[0].main == "rain"){
+                displayImage(R.drawable.rain)
+            }
+            else if(newData.weather[0].main == "Clouds" || newData.weather[0].main == "clouds"){
+                displayImage(R.drawable.cloudy)
+            }
+            else{
+                displayImage(R.drawable.haze)
+            }
         })
         binding.details.setOnClickListener {
             if (viewModel.forecastData.value != null) {
@@ -73,5 +86,13 @@ class BasicWeatherInfoFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    fun displayImage( value : Int){
+        context?.let {
+            Glide.with(it)
+                .load(value)
+            .into(binding.weatherImage)
+        }
     }
 }
