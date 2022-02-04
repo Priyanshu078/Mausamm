@@ -20,4 +20,6 @@
     <string name="windSpeedValue">%s km/h</string>
     <string name="city_name">City Name</string>
     <string name="search">Search</string>
+    <string name="upArrow">↑</string>
+    <string name="downArrow">↓</string>
 </resources>

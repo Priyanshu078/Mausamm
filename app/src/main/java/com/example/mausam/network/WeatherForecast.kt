@@ -27,6 +27,7 @@ data class Current(
 )
 
 data class Hourly(
+    @Json(name = "dt") val date:Long,
     @Json(name = "temp") val temperature:Double,
     @Json(name = "feels_like") val feelsLike:Double,
     val pressure:Int,
@@ -42,6 +43,7 @@ data class Hourly(
 )
 
 data class Daily(
+    @Json(name = "dt") val date:Long,
     @Json(name = "sunrise") val sunRise:Long,
     @Json(name = "sunset") val sunSet:Long,
     @Json(name = "moonrise") val moonRise:Long,

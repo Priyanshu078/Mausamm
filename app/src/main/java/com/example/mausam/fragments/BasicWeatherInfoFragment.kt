@@ -1,6 +1,7 @@
 package com.example.mausam.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,8 @@ import com.bumptech.glide.Glide
 import com.example.mausam.R
 import com.example.mausam.databinding.FragmentBasicWeatherInfoBinding
 import com.example.mausam.viewModel.BasicWeatherInfoViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.math.floor
 
 class BasicWeatherInfoFragment : Fragment() {
@@ -47,6 +50,10 @@ class BasicWeatherInfoFragment : Fragment() {
             run {
                 binding.progressCircular.visibility = View.GONE
             }
+            val timestamp: Long = newData.dt
+            val timeD = Date(timestamp * 1000)
+            val sdf = SimpleDateFormat("dd MMM yyyy").format(timeD)
+            binding.date.text = sdf
             binding.weather.text =
                 getString(R.string.temperature, floor(newData.main.temperature).toInt().toString())
             binding.cityName.text = newData.name
