@@ -2,6 +2,7 @@ package com.example.mausam.fragments
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,6 @@ class BasicWeatherInfoFragment : Fragment() {
     private var _binding: FragmentBasicWeatherInfoBinding? = null
     private val binding get() = _binding!!
     private val viewModel: BasicWeatherInfoViewModel by viewModels()
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +46,7 @@ class BasicWeatherInfoFragment : Fragment() {
         activity?.actionBar?.hide()
         // background color change karne ke liye
 //        view.setBackgroundColor(resources.getColor(R.color.black))
+
         viewModel.data.observe(viewLifecycleOwner, { newData ->
             run {
                 binding.progressCircular.visibility = View.GONE
@@ -94,6 +95,9 @@ class BasicWeatherInfoFragment : Fragment() {
         }
         binding.searchImageView.setOnClickListener {
             view.findNavController().navigate(BasicWeatherInfoFragmentDirections.actionBasicWeatherInfoFragmentToSearchFragment())
+        }
+        binding.drawerIcon.setOnClickListener {
+            binding.drawerLayout.open()
         }
     }
 

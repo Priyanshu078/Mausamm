@@ -55,6 +55,8 @@
         app:boxStrokeColor="@color/skyBlue"
         app:hintTextColor="@color/blueGrey"
         android:layout_margin="16dp"
+
+        android:foregroundTint="@color/blueGrey"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
