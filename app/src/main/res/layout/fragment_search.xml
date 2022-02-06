@@ -42,6 +42,19 @@
         app:layout_constraintTop_toBottomOf="@+id/menubar" />
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="32dp"
+        android:padding="16dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/outlinedTextField"
+        android:text="@string/please_type_or_spell_city_name_using_the_mic"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -70,6 +83,20 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/skyBlue"
+        android:contentDescription="@string/imagebutton"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:src="@drawable/mic"
+        app:layout_constraintBottom_toTopOf="@id/outlinedButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField" />
 
     <Button
         android:id="@+id/outlinedButton"
@@ -81,7 +108,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/outlinedTextField"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton"
         android:backgroundTint="@color/skyBlue"
         />
 

@@ -22,4 +22,7 @@
     <string name="search">Search</string>
     <string name="upArrow">↑</string>
     <string name="downArrow">↓</string>
+    <string name="priyanshu_paliwal">Priyanshu Paliwal</string>
+    <string name="please_type_or_spell_city_name_using_the_mic">Please type or Spell City name using the mic</string>
+    <string name="imagebutton">Imagebutton</string>
 </resources>

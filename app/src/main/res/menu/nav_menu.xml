@@ -4,10 +4,10 @@
     tools:showIn="navigation_view">
     <item
         android:id="@+id/name"
-        android:title="Mausamm"
+        android:title="@string/app_name"
         android:icon="@drawable/clouds"/>
     <item
         android:id="@+id/developer"
-        android:title="Priyanshu Paliwal"
+        android:title="@string/priyanshu_paliwal"
         android:icon="@drawable/person"/>
 </menu>

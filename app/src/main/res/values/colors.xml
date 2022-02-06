@@ -11,4 +11,6 @@
     <color name="blueGrey">#549db9</color>
     <color name="red">#FF0000</color>
     <color name="purple">#FF6200EE</color>
+    <color name="background">#ebebeb</color>
+    <color name="darkBackground">#c7c7c7</color>
 </resources>
