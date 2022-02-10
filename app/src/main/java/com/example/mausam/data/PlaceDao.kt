@@ -7,12 +7,12 @@ import kotlinx.coroutines.flow.Flow
 interface PlaceDao {
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(place: Place)
+    suspend fun insert(place: Place)
 
-    @Query("delete from place where id = :id")
-    fun delete(id:Int)
+    @Delete
+    suspend fun delete(place:Place)
 
-    @Query("select * from place order by id asc")
+    @Query("select * from place")
     fun getPlaces() : Flow<List<Place>>
 
 }

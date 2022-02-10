@@ -2,16 +2,9 @@ package com.example.mausam.fragments
 
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
-import android.speech.SpeechRecognizer
-import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,11 +15,13 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.example.mausam.R
+import com.example.mausam.WeatherApplication
+import com.example.mausam.data.Place
 import com.example.mausam.databinding.FragmentSearchBinding
-import org.w3c.dom.Text
+import com.example.mausam.viewModel.PlaceViewModel
+import com.example.mausam.viewModel.PlaceViewModelFactory
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -40,6 +35,12 @@ class SearchFragment : Fragment() {
     private var _binding:FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
+
+    private val viewModel : PlaceViewModel by activityViewModels{
+        PlaceViewModelFactory(
+            (activity?.application as WeatherApplication).database.placeDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,6 +85,7 @@ class SearchFragment : Fragment() {
                         binding.outlinedTextField.editText?.text = speechText[0]
                     }
                 }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

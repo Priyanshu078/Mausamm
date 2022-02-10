@@ -1,10 +1,30 @@
 package com.example.mausam.viewModel
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.content.ClipData
+import androidx.lifecycle.*
+import com.example.mausam.data.Place
 import com.example.mausam.data.PlaceDao
+import kotlinx.coroutines.launch
 
 class PlaceViewModel(private val placeDao: PlaceDao) : ViewModel() {
+
+    val allItems : LiveData<List<Place>> = placeDao.getPlaces().asLiveData()
+
+    var placesList :MutableList<String> = mutableListOf()
+
+    fun insertNewPlace(place:Place){
+        viewModelScope.launch {
+            placeDao.insert(place)
+        }
+    }
+
+    fun presentInDatabase(cityName:String):Boolean{
+        if(placesList.contains(cityName)){
+            return true
+        }
+        return false
+    }
+
 }
 
 class PlaceViewModelFactory(private val placeDao: PlaceDao) : ViewModelProvider.Factory{

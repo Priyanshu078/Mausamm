@@ -8,12 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import com.bumptech.glide.Glide
 import com.example.mausam.R
+import com.example.mausam.WeatherApplication
+import com.example.mausam.data.Place
 import com.example.mausam.databinding.FragmentBasicWeatherInfoBinding
 import com.example.mausam.viewModel.BasicWeatherInfoViewModel
+import com.example.mausam.viewModel.PlaceViewModel
+import com.example.mausam.viewModel.PlaceViewModelFactory
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.floor
@@ -23,12 +29,17 @@ class BasicWeatherInfoFragment : Fragment() {
     private var _binding: FragmentBasicWeatherInfoBinding? = null
     private val binding get() = _binding!!
     private val viewModel: BasicWeatherInfoViewModel by viewModels()
+    private val placeViewModel : PlaceViewModel by activityViewModels{
+        PlaceViewModelFactory(
+            (activity?.application as WeatherApplication).database.placeDao()
+        )
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if(SearchValue.cityName == "") {
-            SearchValue.cityName = "Gondia"
-        }
+//        if(SearchValue.cityName == "") {
+//            SearchValue.cityName = "Gondia"
+//        }
     }
 
     override fun onCreateView(
@@ -44,6 +55,7 @@ class BasicWeatherInfoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.progressCircular.visibility = View.VISIBLE
         activity?.actionBar?.hide()
+        view.findNavController().graph.startDestination = R.id.basicWeatherInfoFragment
         // background color change karne ke liye
 //        view.setBackgroundColor(resources.getColor(R.color.black))
 
@@ -98,6 +110,17 @@ class BasicWeatherInfoFragment : Fragment() {
         }
         binding.drawerIcon.setOnClickListener {
             binding.drawerLayout.open()
+        }
+        placeViewModel.allItems.observe(this.viewLifecycleOwner){
+                list ->
+            Log.d("dataList",list.toString())
+            for(i in list){
+                placeViewModel.placesList.add(i.placeName)
+            }
+            if(!placeViewModel.presentInDatabase(SearchValue.cityName.lowercase())) {
+                val place = Place(placeName = SearchValue.cityName.lowercase())
+                placeViewModel.insertNewPlace(place)
+            }
         }
     }
 
