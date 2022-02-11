@@ -109,9 +109,7 @@ class BasicWeatherInfoFragment : Fragment() {
         placeViewModel.allItems.observe(this.viewLifecycleOwner){
                 list ->
             Log.d("dataList",list.toString())
-            for(i in list){
-                placeViewModel.placesList.add(i.placeName)
-            }
+            placeViewModel.getPlacesList(list)
             if(!placeViewModel.presentInDatabase(SearchValue.cityName.lowercase())) {
                 val place = Place(placeName = SearchValue.cityName.lowercase())
                 placeViewModel.insertNewPlace(place)

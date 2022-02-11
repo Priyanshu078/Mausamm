@@ -29,16 +29,9 @@ object SearchValue{
 
 class SearchFragment : Fragment() {
 
-
     private var _binding:FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
-
-    private val viewModel : PlaceViewModel by activityViewModels{
-        PlaceViewModelFactory(
-            (activity?.application as WeatherApplication).database.placeDao()
-        )
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

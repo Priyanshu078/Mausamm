@@ -18,6 +18,12 @@ class PlaceViewModel(private val placeDao: PlaceDao) : ViewModel() {
         }
     }
 
+    fun getPlacesList(list: List<Place>){
+        for(i in list){
+            placesList.add(i.placeName)
+        }
+    }
+
     fun presentInDatabase(cityName:String):Boolean{
         if(placesList.contains(cityName)){
             return true
