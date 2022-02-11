@@ -12,7 +12,7 @@ interface PlaceDao {
     @Delete
     suspend fun delete(place:Place)
 
-    @Query("select * from place")
+    @Query("select id,count(name), name from place group by name order by id ;")
     fun getPlaces() : Flow<List<Place>>
 
 }

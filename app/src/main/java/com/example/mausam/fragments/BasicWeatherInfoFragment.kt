@@ -2,7 +2,6 @@ package com.example.mausam.fragments
 
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import com.bumptech.glide.Glide
 import com.example.mausam.R
 import com.example.mausam.WeatherApplication
@@ -37,9 +35,6 @@ class BasicWeatherInfoFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        if(SearchValue.cityName == "") {
-//            SearchValue.cityName = "Gondia"
-//        }
     }
 
     override fun onCreateView(
@@ -124,12 +119,14 @@ class BasicWeatherInfoFragment : Fragment() {
         }
     }
 
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    fun displayImage( value : Int){
+    private fun displayImage(value : Int){
         context?.let {
             Glide.with(it)
                 .load(value)
