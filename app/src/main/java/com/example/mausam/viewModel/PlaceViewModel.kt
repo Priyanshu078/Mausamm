@@ -1,6 +1,5 @@
 package com.example.mausam.viewModel
 
-import android.content.ClipData
 import androidx.lifecycle.*
 import com.example.mausam.data.Place
 import com.example.mausam.data.PlaceDao
@@ -20,7 +19,9 @@ class PlaceViewModel(private val placeDao: PlaceDao) : ViewModel() {
 
     fun getPlacesList(list: List<Place>){
         for(i in list){
-            placesList.add(i.placeName)
+            if(!placesList.contains(i.placeName)) {
+                placesList.add(i.placeName)
+            }
         }
     }
 

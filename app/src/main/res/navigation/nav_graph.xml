@@ -16,7 +16,13 @@
             app:destination="@id/detailWeatherInfoFragment" />
         <action
             android:id="@+id/action_basicWeatherInfoFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"/>
+        <action
+            android:id="@+id/action_basicWeatherInfoFragment_to_basicWeatherInfoFragment"
+            app:destination="@id/basicWeatherInfoFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
     </fragment>
     <fragment
         android:id="@+id/detailWeatherInfoFragment"
@@ -49,9 +55,15 @@
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_searchFragment"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
         <action
             android:id="@+id/action_splashFragment_to_basicWeatherInfoFragment"
-            app:destination="@id/basicWeatherInfoFragment" />
+            app:destination="@id/basicWeatherInfoFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
     </fragment>
 </navigation>
