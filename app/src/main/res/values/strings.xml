@@ -25,4 +25,9 @@
     <string name="please_type_or_spell_city_name_using_the_mic">Please type or Spell City name using the mic</string>
     <string name="imagebutton">Imagebutton</string>
     <string name="developed_by_priyanshu_paliwal">Developed with ❤ by Priyanshu Paliwal</string>
+    <string name="try_again">Try Again</string>
+    <string name="whoops">Whoops</string>
+    <string name="slow_or_no_internet_connection">Slow or no internet connection</string>
+    <string name="please_check_your_internet_settings_and_try_again">Please check your internet settings and try again</string>
+    <string name="no_internet_image">no internet image</string>
 </resources>

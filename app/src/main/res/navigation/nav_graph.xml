@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/basicWeatherInfoFragment"
-        android:name="com.example.mausam.fragments.BasicWeatherInfoFragment"
+        android:name="com.priyanshupaliwal.mausamm.fragments.BasicWeatherInfoFragment"
         android:label="Mausam"
         tools:layout="@layout/fragment_basic_weather_info" >
         <action
@@ -23,22 +23,28 @@
             app:launchSingleTop="true"
             app:popUpToInclusive="true"
             app:popUpTo="@id/nav_graph"/>
+        <action
+            android:id="@+id/action_basicWeatherInfoFragment_to_checkInternetFragment"
+            app:destination="@id/checkInternetFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
     </fragment>
     <fragment
         android:id="@+id/detailWeatherInfoFragment"
-        android:name="com.example.mausam.fragments.DetailWeatherInfoFragment"
+        android:name="com.priyanshupaliwal.mausamm.fragments.DetailWeatherInfoFragment"
         android:label="fragment_detail_weather_info"
         tools:layout="@layout/fragment_detail_weather_info" >
         <argument
             android:name="model"
-            app:argType="com.example.mausam.viewModel.BasicWeatherInfoViewModel" />
+            app:argType="com.priyanshupaliwal.mausamm.viewModel.BasicWeatherInfoViewModel" />
         <action
             android:id="@+id/action_detailWeatherInfoFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.mausam.fragments.SearchFragment"
+        android:name="com.priyanshupaliwal.mausamm.fragments.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" >
         <action
@@ -50,7 +56,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.mausam.fragments.SplashFragment"
+        android:name="com.priyanshupaliwal.mausamm.fragments.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -61,6 +67,18 @@
             app:popUpTo="@id/nav_graph"/>
         <action
             android:id="@+id/action_splashFragment_to_basicWeatherInfoFragment"
+            app:destination="@id/basicWeatherInfoFragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/nav_graph"/>
+    </fragment>
+    <fragment
+        android:id="@+id/checkInternetFragment"
+        android:name="com.priyanshupaliwal.mausamm.fragments.CheckInternetFragment"
+        android:label="fragment_check_internet"
+        tools:layout="@layout/fragment_check_internet" >
+        <action
+            android:id="@+id/action_checkInternetFragment_to_basicWeatherInfoFragment"
             app:destination="@id/basicWeatherInfoFragment"
             app:launchSingleTop="true"
             app:popUpToInclusive="true"
